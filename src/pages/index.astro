@@ -1,0 +1,136 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { IMG, JOIN_URL, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+// To add an event, copy one of the { ... } blocks below and change the text.
+const upcoming = [
+	{
+		title: 'UMMC x dOXA Matcha x Yelo Avenue',
+		img: IMG.doxa,
+		details: [
+			'10:00am – 4:00pm',
+			'Tuesday, September 29th, 2026',
+			'Engineering Atrium, Price Faculty of Engineering',
+		],
+	},
+	{
+		title: 'UMMC x Maro Matcha',
+		img: IMG.maro,
+		link: 'https://drive.google.com/drive/folders/1TWRykpMGj93-HcpioAXrF3kCJZK2BL6Y?usp=drive_link',
+		linkText: '"UMMC x MARO MATCHA" Photos – Google Drive',
+	},
+];
+
+const past = [
+	{
+		title: 'UMMC x Sips by Sammy',
+		img: IMG.sammy,
+		link: 'https://drive.google.com/drive/folders/1-Cnq0wUHEwAIO0O-YisBMRoS5NTs04sM?usp=sharing',
+		linkText: '"UMMC x SIPS BY SAMMY" Photos – Google Drive',
+	},
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Home | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+
+		<div class="hero">
+			<h1>Sip. Study. Repeat.</h1>
+			<p>Bringing Matcha Culture to the University of Manitoba</p>
+		</div>
+
+		<section>
+			<div class="container about-grid">
+				<img src={IMG.matchaPowder} alt="Matcha" />
+				<div class="about-text">
+					<p class="eyebrow">The University of Manitoba Matcha Club (UMMC)</p>
+					<h2>Who We Are</h2>
+					<p>
+						The purpose of our club is to create a welcoming community for students and matcha
+						enthusiasts — a space where members can come together to appreciate matcha while
+						exploring its cultural roots and traditional preparation.
+					</p>
+					<p>
+						We strive to create a community where students of all hobbies and interests can come
+						together, socialize with friends, and build new friendships that last throughout their
+						time at university. Our long-term goals are to deepen the community’s knowledge and love
+						for matcha, share tips and guidance, host interactive workshops, and collaborate with
+						local cafés to bring the matcha experience to more people.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="events">
+			<div class="container center">
+				<h2>What We're Brewing</h2>
+				<p class="lead">
+					See what’s brewing next — explore our upcoming matcha pop-ups, collaborations, and campus
+					events.
+				</p>
+				<p class="events-heading">Our Upcoming Events</p>
+				<div class="event-grid">
+					{upcoming.map((e) => (
+						<article class="event-card">
+							<img src={e.img} alt={e.title} loading="lazy" />
+							<div class="event-body">
+								<h4>{e.title}</h4>
+								{e.details && (
+									<div class="event-details">
+										<strong>Details:</strong>
+										{e.details.map((d) => <>{d}<br /></>)}
+									</div>
+								)}
+								{e.link && (
+									<a class="event-link" href={e.link} target="_blank" rel="noopener">{e.linkText}</a>
+								)}
+							</div>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="events alt">
+			<div class="container center">
+				<h2>What We've Brewed</h2>
+				<p class="lead">
+					See what we’ve been brewing — take a look back at our past matcha pop-ups,
+					collaborations, and campus moments.
+				</p>
+				<p class="events-heading">Our Previous Events</p>
+				<div class="event-grid">
+					{past.map((e) => (
+						<article class="event-card">
+							<img src={e.img} alt={e.title} loading="lazy" />
+							<div class="event-body">
+								<h4>{e.title}</h4>
+								<a class="event-link" href={e.link} target="_blank" rel="noopener">{e.linkText}</a>
+							</div>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="cta">
+			<div class="container cta-grid">
+				<div>
+					<h2>Ready to Whisk With Us?</h2>
+					<p>Your journey to finding community, connection, and great matcha starts here.</p>
+					<a class="btn" href={JOIN_URL} target="_blank" rel="noopener">Join Us</a>
+				</div>
+				<img src={IMG.matchaCup} alt="Matcha" loading="lazy" />
+			</div>
+		</section>
+
+		<Footer />
+	</body>
+</html>

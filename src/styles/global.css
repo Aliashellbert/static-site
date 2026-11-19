@@ -1,0 +1,227 @@
+/* UM Matcha Club theme – matches ummatchaclub.ca */
+
+:root {
+	--matcha: #6b8f4e;
+	--matcha-dark: #3f5a2c;
+	--matcha-light: #dfe8cf;
+	--cream: #f7f3e9;
+	--ink: #2b2b24;
+	--muted: #6a6a5c;
+	--white: #ffffff;
+
+	/* Older template variables, re-pointed to the matcha palette */
+	--accent: #6b8f4e;
+	--accent-dark: #3f5a2c;
+	--black: 43, 43, 36;
+	--gray: 106, 106, 92;
+	--gray-light: 223, 232, 207;
+	--gray-dark: 43, 43, 36;
+	--box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+	font-family: 'Poppins', sans-serif;
+	color: var(--ink);
+	background: var(--cream);
+	line-height: 1.6;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+/* ---------- Page hero (green gradient banner) ---------- */
+.hero {
+	background: linear-gradient(135deg, var(--matcha-dark), var(--matcha));
+	color: var(--white);
+	text-align: center;
+	padding: 120px 24px 110px;
+}
+.hero h1 {
+	font-family: 'Playfair Display', serif;
+	font-size: clamp(42px, 8vw, 88px);
+	font-weight: 700;
+	line-height: 1.1;
+	margin-bottom: 18px;
+}
+.hero p { font-size: clamp(16px, 2.2vw, 22px); font-weight: 300; opacity: 0.95; }
+.hero.small { padding: 90px 24px 80px; }
+.hero.small h1 { font-size: clamp(38px, 6vw, 64px); }
+
+/* ---------- Sections ---------- */
+section { padding: 90px 24px; }
+.container { max-width: 1100px; margin: 0 auto; }
+.eyebrow {
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	font-size: 13px;
+	font-weight: 600;
+	color: var(--matcha);
+	margin-bottom: 10px;
+}
+h2 {
+	font-family: 'Playfair Display', serif;
+	font-size: clamp(30px, 4.5vw, 46px);
+	color: var(--matcha-dark);
+	line-height: 1.2;
+	margin-bottom: 18px;
+}
+.lead { color: var(--muted); font-size: 17px; max-width: 640px; }
+.center { text-align: center; }
+.center .lead { margin: 0 auto; }
+
+/* ---------- About (image + text) ---------- */
+.about-grid {
+	display: grid;
+	grid-template-columns: 1fr 1.15fr;
+	gap: 60px;
+	align-items: center;
+}
+.about-grid img {
+	width: 100%;
+	aspect-ratio: 736 / 1106;
+	object-fit: cover;
+	border-radius: 18px;
+	box-shadow: 0 20px 40px rgba(63, 90, 44, 0.18);
+}
+.about-text h3 {
+	font-family: 'Playfair Display', serif;
+	font-style: italic;
+	font-size: 22px;
+	color: var(--matcha);
+	margin-bottom: 6px;
+}
+.about-text p { margin-bottom: 16px; color: var(--ink); }
+
+/* ---------- Events / cards ---------- */
+.events { background: var(--white); }
+.events.alt { background: var(--matcha-light); }
+.events-heading {
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	font-size: 15px;
+	font-weight: 600;
+	color: var(--matcha-dark);
+	margin: 50px 0 30px;
+	text-align: center;
+}
+.event-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 380px));
+	gap: 36px;
+	justify-content: center;
+	text-align: left;
+}
+.event-card {
+	background: var(--cream);
+	border-radius: 16px;
+	overflow: hidden;
+	box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+	display: flex;
+	flex-direction: column;
+	transition: transform 0.25s;
+	text-decoration: none;
+	color: inherit;
+}
+.events.alt .event-card { background: var(--white); }
+.event-card:hover { transform: translateY(-6px); }
+.event-card img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.event-body { padding: 22px 24px 26px; }
+.event-body h4 {
+	font-size: 18px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: var(--matcha-dark);
+	margin-bottom: 10px;
+}
+.event-details { font-size: 14px; color: var(--muted); }
+.event-details strong { color: var(--ink); display: block; margin-bottom: 4px; }
+.event-link {
+	display: inline-block;
+	margin-top: 8px;
+	font-size: 14px;
+	font-weight: 500;
+	color: var(--matcha);
+	text-decoration: none;
+	border-bottom: 1px solid currentColor;
+}
+
+/* ---------- Call to action ---------- */
+.cta { background: var(--matcha-dark); color: var(--white); }
+.cta-grid {
+	display: grid;
+	grid-template-columns: 1.2fr 1fr;
+	gap: 50px;
+	align-items: center;
+}
+.cta h2 { color: var(--white); }
+.cta p { opacity: 0.9; font-size: 18px; margin-bottom: 30px; }
+.cta img {
+	border-radius: 50%;
+	width: 100%;
+	max-width: 380px;
+	margin: 0 auto;
+	aspect-ratio: 1;
+	object-fit: cover;
+}
+.btn {
+	display: inline-block;
+	padding: 14px 40px;
+	border-radius: 40px;
+	background: var(--matcha-light);
+	color: var(--matcha-dark);
+	font-weight: 600;
+	text-decoration: none;
+	letter-spacing: 1px;
+	transition: background 0.2s, transform 0.2s;
+}
+.btn:hover { background: var(--white); transform: scale(1.04); }
+.btn.dark { background: var(--matcha-dark); color: var(--white); }
+.btn.dark:hover { background: var(--matcha); }
+
+/* ---------- Blog post text ---------- */
+.prose { max-width: 760px; margin: 0 auto; font-size: 17px; }
+.prose p, .prose ul, .prose ol, .prose blockquote, .prose pre { margin-bottom: 1.4em; }
+.prose ul, .prose ol { padding-left: 1.4em; }
+.prose h2 { font-size: 32px; margin-top: 1.4em; }
+.prose h3 {
+	font-family: 'Playfair Display', serif;
+	color: var(--matcha-dark);
+	font-size: 24px;
+	margin: 1.2em 0 0.5em;
+}
+.prose a { color: var(--matcha); font-weight: 500; }
+.prose img { border-radius: 14px; margin: 1.5em auto; }
+.prose blockquote {
+	border-left: 4px solid var(--matcha);
+	padding-left: 20px;
+	font-style: italic;
+	color: var(--muted);
+}
+.prose code { background: var(--matcha-light); padding: 2px 6px; border-radius: 4px; }
+.prose hr { border: none; border-top: 1px solid rgba(63, 90, 44, 0.15); margin: 2em 0; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 820px) {
+	.about-grid, .cta-grid { grid-template-columns: 1fr; gap: 36px; }
+	.about-grid img { max-width: 420px; margin: 0 auto; }
+}
+@media (max-width: 520px) {
+	section { padding: 64px 16px; }
+	.hero { padding: 80px 16px; }
+}
+
+/* Screen-reader-only text */
+.sr-only {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	white-space: nowrap;
+}

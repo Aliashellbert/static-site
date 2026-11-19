@@ -1,0 +1,103 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { IMG, JOIN_URL, SITE_TITLE } from '../consts';
+
+const pillars = [
+	{ title: 'Community', text: 'A welcoming space for students of all hobbies and interests to socialize and build lasting friendships.' },
+	{ title: 'Culture', text: 'Appreciating matcha while exploring its cultural roots and traditional preparation.' },
+	{ title: 'Workshops', text: 'Interactive workshops where members share tips and guidance and deepen their matcha knowledge.' },
+	{ title: 'Collaborations', text: 'Partnering with local cafés and matcha brands to bring the matcha experience to more people.' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={`About Us | ${SITE_TITLE}`}
+			description="Learn about the University of Manitoba Matcha Club: our purpose, our community, and our goals."
+		/>
+	</head>
+	<body>
+		<Header />
+
+		<div class="hero small">
+			<h1>About Us</h1>
+			<p>Get to know the University of Manitoba Matcha Club</p>
+		</div>
+
+		<section>
+			<div class="container about-grid">
+				<img src={IMG.matchaPowder} alt="Matcha powder" />
+				<div class="about-text">
+					<p class="eyebrow">Our Purpose</p>
+					<h2>A Community Built Around Matcha</h2>
+					<p>
+						The purpose of our club is to create a welcoming community for students and matcha
+						enthusiasts — a space where members can come together to appreciate matcha while
+						exploring its cultural roots and traditional preparation.
+					</p>
+					<h3>Our goals</h3>
+					<p>
+						Our long-term goals are to deepen the community’s knowledge and love for matcha, share
+						tips and guidance, host interactive workshops, and collaborate with local cafés to bring
+						the matcha experience to more people.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="events alt">
+			<div class="container center">
+				<h2>What We're About</h2>
+				<p class="lead">Four things guide everything we brew.</p>
+				<div class="pillars">
+					{pillars.map((p) => (
+						<div class="pillar">
+							<h4>{p.title}</h4>
+							<p>{p.text}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="cta">
+			<div class="container cta-grid">
+				<div>
+					<h2>Ready to Whisk With Us?</h2>
+					<p>Your journey to finding community, connection, and great matcha starts here.</p>
+					<a class="btn" href={JOIN_URL} target="_blank" rel="noopener">Join Us</a>
+				</div>
+				<img src={IMG.matchaCup} alt="Matcha" loading="lazy" />
+			</div>
+		</section>
+
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.pillars {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 24px;
+		margin-top: 40px;
+		text-align: left;
+	}
+	.pillar {
+		background: var(--white);
+		border-radius: 16px;
+		padding: 28px 24px;
+		box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+	}
+	.pillar h4 {
+		font-family: 'Playfair Display', serif;
+		font-size: 22px;
+		color: var(--matcha-dark);
+		margin-bottom: 8px;
+	}
+	.pillar p { color: var(--muted); font-size: 15px; }
+</style>

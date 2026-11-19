@@ -1,0 +1,54 @@
+---
+import { IMG } from '../consts';
+import HeaderLink from './HeaderLink.astro';
+---
+
+<header>
+	<nav class="nav">
+		<a href="/" class="logo"><img src={IMG.logo} alt="UMMC Logo" /></a>
+		<ul>
+			<li><HeaderLink href="/">Home</HeaderLink></li>
+			<li><HeaderLink href="/about">About Us</HeaderLink></li>
+			<li><HeaderLink href="/blog">Blog</HeaderLink></li>
+			<li><HeaderLink href="/contact">Contact</HeaderLink></li>
+		</ul>
+	</nav>
+</header>
+
+<style>
+	header {
+		position: sticky;
+		top: 0;
+		z-index: 50;
+		background: rgba(247, 243, 233, 0.95);
+		backdrop-filter: blur(6px);
+		border-bottom: 1px solid rgba(63, 90, 44, 0.12);
+	}
+	.nav {
+		max-width: 1200px;
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 12px 24px;
+	}
+	.logo img { width: 64px; height: 64px; object-fit: cover; border-radius: 50%; }
+	ul { list-style: none; display: flex; gap: 32px; }
+	/* links come from HeaderLink.astro, so they need :global */
+	ul :global(a) {
+		text-decoration: none;
+		font-weight: 500;
+		font-size: 15px;
+		letter-spacing: 0.5px;
+		color: var(--matcha-dark);
+		transition: color 0.2s;
+	}
+	ul :global(a:hover),
+	ul :global(a.active) { color: var(--matcha); }
+
+	@media (max-width: 520px) {
+		ul { gap: 14px; }
+		ul :global(a) { font-size: 13px; }
+		.logo img { width: 48px; height: 48px; }
+	}
+</style>
